@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;

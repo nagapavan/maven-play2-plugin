@@ -23,13 +23,14 @@
         <version>5</version>
     </parent>
 
-    <groupId>de.akquinet.innovation.play2</groupId>
+    <groupId>org.nanoko.playframework</groupId>
     <artifactId>play2-maven-plugin</artifactId>
     <version>1.2.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
     <name>play2-maven-plugin</name>
 
     <description>A Maven Plugin to build Play2 Application</description>
+    <!-- TODO Change URL -->
     <url>https://github.com/cescoffier/maven-play2-plugin</url>
     <inceptionYear>2012</inceptionYear>
 
@@ -39,6 +40,7 @@
     </issueManagement>
 
     <mailingLists>
+        <!-- TODO Add nanoko mailing list -->
         <mailingList>
             <name>Play 2</name>
             <subscribe>https://groups.google.com/group/play-framework</subscribe>
@@ -131,6 +133,7 @@
     <properties>
         <mavenVersion>2.2.1</mavenVersion>
         <mavenArchiverVersion>2.5</mavenArchiverVersion>
+        <!-- TODO Change URL -->
         <project.url>http://cescoffier.github.com/maven-play2-plugin/maven/${project.version}</project.url>
         <!-- empty by default, can be set using system props (-Dplay2.home=...)-->
         <play2.home/>
@@ -298,6 +301,7 @@
     </repositories>
 
     <build>
+        <!-- TODO Use the resource-appender plugin, add DEPENDENCIES -->
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -500,6 +504,7 @@
         </plugins>
     </build>
 
+    <!-- TODO Update SCM -->
     <scm>
         <connection>scm:git:git@github.com:cescoffier/maven-play2-plugin.git</connection>
         <url>https://github.com/cescoffier/maven-play2-plugin</url>
@@ -508,26 +513,6 @@
 
 
     <profiles>
-        <profile>
-            <!--  When enabled, this profile override the Sonatype distribution management   -->
-            <id>ats.nexus</id>
-            <distributionManagement>
-                <repository>
-                    <id>${repo.releases.id}</id>
-                    <name>${repo.releases.name}</name>
-                    <url>${repo.releases.url}</url>
-                    <uniqueVersion>false</uniqueVersion>
-                </repository>
-
-                <snapshotRepository>
-                    <id>${repo.snapshots.id}</id>
-                    <name>${repo.snapshots.name}</name>
-                    <url>${repo.snapshots.url}</url>
-                    <uniqueVersion>false</uniqueVersion>
-                </snapshotRepository>
-            </distributionManagement>
-        </profile>
-
         <profile>
             <id>release</id>
             <properties>

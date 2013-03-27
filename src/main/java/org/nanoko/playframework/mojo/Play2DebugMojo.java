@@ -1,4 +1,4 @@
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;

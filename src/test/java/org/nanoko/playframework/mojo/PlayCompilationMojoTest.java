@@ -13,9 +13,8 @@
  * limitations under the License.
  */
 
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.Test;

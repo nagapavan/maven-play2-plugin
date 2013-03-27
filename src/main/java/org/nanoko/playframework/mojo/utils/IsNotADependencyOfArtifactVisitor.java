@@ -1,4 +1,4 @@
-package de.akquinet.innovation.play.maven.utils;
+package org.nanoko.playframework.mojo.utils;
 
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.shared.dependency.tree.DependencyNode;

@@ -13,22 +13,14 @@
  * limitations under the License.
  */
 
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.ExecuteWatchdog;
-import org.apache.maven.artifact.factory.ArtifactFactory;
-import org.apache.maven.artifact.metadata.ArtifactMetadataSource;
-import org.apache.maven.artifact.repository.ArtifactRepository;
-import org.apache.maven.artifact.resolver.ArtifactCollector;
-import org.apache.maven.artifact.resolver.ArtifactResolver;
 import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.dependency.CopyDependenciesMojo;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.List;
 
 /**
  * Compile the Play application

@@ -25,23 +25,23 @@
             <configuration>
                 <phases>
                     <clean>
-                        de.akquinet.innovation.play2:play2-maven-plugin:clean,
+                        org.nanoko.playframework:play2-maven-plugin:clean,
                         org.apache.maven.plugins:maven-clean-plugin:clean
                     </clean>
                     <process-resources>
                         org.apache.maven.plugins:maven-resources-plugin:resources,
-                        de.akquinet.innovation.play2:play2-maven-plugin:copy-dependencies
+                        org.nanoko.playframework:play2-maven-plugin:copy-dependencies
                     </process-resources>
                     <compile>
-                        de.akquinet.innovation.play2:play2-maven-plugin:compile
+                        org.nanoko.playframework:play2-maven-plugin:compile
                     </compile>
                     <process-test-resources>
                         org.apache.maven.plugins:maven-resources-plugin:testResources
                     </process-test-resources>
-                    <test>de.akquinet.innovation.play2:play2-maven-plugin:test</test>
+                    <test>org.nanoko.playframework:play2-maven-plugin:test</test>
                     <package>
-                        de.akquinet.innovation.play2:play2-maven-plugin:package,
-                        de.akquinet.innovation.play2:play2-maven-plugin:package-war
+                        org.nanoko.playframework:play2-maven-plugin:package,
+                        org.nanoko.playframework:play2-maven-plugin:package-war
                     </package>
                     <install>
                         org.apache.maven.plugins:maven-install-plugin:install

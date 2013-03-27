@@ -13,13 +13,15 @@
  * limitations under the License.
  */
 
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.project.MavenProject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.nanoko.playframework.mojo.AbstractPlay2Mojo;
+import org.nanoko.playframework.mojo.Play2CleanMojo;
 
 import static org.fest.assertions.Assertions.assertThat;
 import static org.mockito.Mockito.mock;

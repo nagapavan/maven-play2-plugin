@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.model.Build;

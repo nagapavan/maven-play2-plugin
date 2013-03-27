@@ -1,6 +1,6 @@
-package de.akquinet.innovation.play.maven.utils;
+package org.nanoko.playframework.mojo.utils;
 
-import de.akquinet.innovation.play.maven.WarPackageMojo;
+import org.nanoko.playframework.mojo.WarPackageMojo;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.dependency.CopyDependenciesMojo;

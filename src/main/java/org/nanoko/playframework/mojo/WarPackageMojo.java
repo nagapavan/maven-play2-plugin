@@ -1,6 +1,6 @@
-package de.akquinet.innovation.play.maven;
+package org.nanoko.playframework.mojo;
 
-import de.akquinet.innovation.play.maven.utils.CopyDependenciesEmbeddedMojo;
+import org.nanoko.playframework.mojo.utils.CopyDependenciesEmbeddedMojo;
 import org.apache.commons.io.FileUtils;
 import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
