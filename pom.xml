@@ -30,8 +30,7 @@
     <name>play2-maven-plugin</name>
 
     <description>A Maven Plugin to build Play2 Application</description>
-    <!-- TODO Change URL -->
-    <url>https://github.com/cescoffier/maven-play2-plugin</url>
+    <url>https://github.com/nanoko-project/maven-play2-plugin</url>
     <inceptionYear>2012</inceptionYear>
 
     <issueManagement>
@@ -40,9 +39,16 @@
     </issueManagement>
 
     <mailingLists>
-        <!-- TODO Add nanoko mailing list -->
         <mailingList>
-            <name>Play 2</name>
+            <name>Nanoko</name>
+            <subscribe>https://groups.google.com/group/nanoko</subscribe>
+            <unsubscribe>https://groups.google.com/group/nanoko</unsubscribe>
+            <post>nanoko@googlegroups.com</post>
+            <archive>https://groups.google.com/group/nanoko</archive>
+        </mailingList>
+
+        <mailingList>
+            <name>Play Framework</name>
             <subscribe>https://groups.google.com/group/play-framework</subscribe>
             <unsubscribe>https://groups.google.com/group/play-framework</unsubscribe>
             <post>play-framework@googlegroups.com</post>
@@ -62,7 +68,7 @@
         <developer>
             <name>Clement Escoffier</name>
             <email>clement.escoffier@gmail.[NO-SPAM]com</email>
-            <organization>akquinet tech@spree</organization>
+            <organization>dynamis-technologies and Grenoble University</organization>
             <properties>
                 <github>cescoffier</github>
             </properties>
@@ -133,8 +139,6 @@
     <properties>
         <mavenVersion>2.2.1</mavenVersion>
         <mavenArchiverVersion>2.5</mavenArchiverVersion>
-        <!-- TODO Change URL -->
-        <project.url>http://cescoffier.github.com/maven-play2-plugin/maven/${project.version}</project.url>
         <!-- empty by default, can be set using system props (-Dplay2.home=...)-->
         <play2.home/>
         <site.path>maven/snapshot</site.path>
@@ -504,11 +508,10 @@
         </plugins>
     </build>
 
-    <!-- TODO Update SCM -->
     <scm>
-        <connection>scm:git:git@github.com:cescoffier/maven-play2-plugin.git</connection>
-        <url>https://github.com/cescoffier/maven-play2-plugin</url>
-        <developerConnection>scm:git:git@github.com:cescoffier/maven-play2-plugin.git</developerConnection>
+        <connection>scm:git:git@github.com:nanoko-project/maven-play2-plugin.git</connection>
+        <url>https://github.com/nanoko-project/maven-play2-plugin</url>
+        <developerConnection>scm:git:git@github.com:nanoko-project/maven-play2-plugin.git</developerConnection>
     </scm>
 
 
