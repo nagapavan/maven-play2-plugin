@@ -35,3 +35,9 @@ Usage
 -----
 
 General instructions on how to use the ${project.artifactId} can be found on the [usage page](./usage.html).
+
+History and License
+-------------------
+
+The plugin was initialy founded by akquinet A.G. It's now part of the [OW2 Nanoko project](http://nanoko.org). The
+plugin is licensed under the Apache License 2.0.
