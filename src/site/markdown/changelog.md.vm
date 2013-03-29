@@ -1,0 +1,78 @@
+Changelog
+=========
+
+
+Version 1.2.2
+--------------
+
+* [#41](https://github.com/cescoffier/maven-play2-plugin/issues/41) - Allow attachment of the javadoc and source files
+* [#40](https://github.com/cescoffier/maven-play2-plugin/issues/40) - fixed "Cannot find the packaged file - Too many
+ matches" error
+* [#39](https://github.com/cescoffier/maven-play2-plugin/issues/39) - Skip test if the test folder is empty
+* [#38](https://github.com/cescoffier/maven-play2-plugin/issues/38) - Test the plugin with play 2.1
+* [#37](https://github.com/cescoffier/maven-play2-plugin/issues/37) - 1.2.2-SNAPSHOT maven repo
+* [#34](https://github.com/cescoffier/maven-play2-plugin/pull/34) - play2:install goal: applied new TypeSafe download
+ URL pattern
+* [#33](https://github.com/cescoffier/maven-play2-plugin/issues/33) - play2:install-play does not work
+* [#30](https://github.com/cescoffier/maven-play2-plugin/issues/30) - Added support of system properties
+configuration for play2 execution test/run/debug command
+* [#29](https://github.com/cescoffier/maven-play2-plugin/issues/29) - Adding support for additional files to be
+included in a play dist zip file
+* [#28](https://github.com/cescoffier/maven-play2-plugin/issues/28) - Integration with play 2.0.4 in Windows
+* [#25](https://github.com/cescoffier/maven-play2-plugin/issues/25) - Configurations are not taken from custom
+directory
+
+
+Version 1.2.1
+--------------
+
+* [#27](https://github.com/cescoffier/maven-play2-plugin/issues/17) - Compile goal does not inherit $JAVA_HOME thus
+cannot find javac
+* [#26](https://github.com/cescoffier/maven-play2-plugin/issues/26) - Problems with commands
+* [#24](https://github.com/cescoffier/maven-play2-plugin/pull/24) - added digitalsanctum to contributors list
+* [#23](https://github.com/cescoffier/maven-play2-plugin/pull/23) - add support for debug
+* [#22](https://github.com/cescoffier/maven-play2-plugin/issues/22) - Add System properties and environment variables
+ to play invocation.
+* [#20](https://github.com/cescoffier/maven-play2-plugin/issues/20) - Add 'install-play' goal that download and
+install Play! distributions.
+* [#19](https://github.com/cescoffier/maven-play2-plugin/issues/19) - getEnvironment() doesn't include system properties
+
+Version 1.2.0
+--------------
+
+* [#17](https://github.com/cescoffier/maven-play2-plugin/issues/17) - Provide instruction to use the regular Maven
+Structure.
+* [#16](https://github.com/cescoffier/maven-play2-plugin/issues/16) - The Build.scala and Maven POM should be kept
+in sync
+* [#15](https://github.com/cescoffier/maven-play2-plugin/issues/15) - Homebrew installation of Play are not supported
+ by the plugin
+* [#14](https://github.com/cescoffier/maven-play2-plugin/issues/14) - Get play from path
+
+Version 1.1.0
+--------------
+
+* [#13](https://github.com/cescoffier/maven-play2-plugin/issues/13) - Timeouts in goals?
+* [#12](https://github.com/cescoffier/maven-play2-plugin/issues/12) - Preparation of the 1.1.0 release
+* [#11](https://github.com/cescoffier/maven-play2-plugin/issues/11) - Prefer play.bat on windows
+* [#10](https://github.com/cescoffier/maven-play2-plugin/issues/10) - Pass PLAY2_HOME to surefire with ease
+* [#9](https://github.com/cescoffier/maven-play2-plugin/issues/9) - Maven 2 source level compatibility
+* [#8](https://github.com/cescoffier/maven-play2-plugin/issues/8) - Easier/more flexible PLAY2_HOME config
+* [#7](https://github.com/cescoffier/maven-play2-plugin/issues/7) - Minor edit fixing Paul Merlin contact info in
+contributors list
+
+Version 1.0.1
+--------------
+
+* [#6](https://github.com/cescoffier/maven-play2-plugin/issues/6) - Make all goals work in multiproject setup
+
+Version 1.0.0
+--------------
+
+* [#5](https://github.com/cescoffier/maven-play2-plugin/issues/5) - Option to delete the dist directory after packaging
+* [#4](https://github.com/cescoffier/maven-play2-plugin/issues/4) - logs folder is not deleted at clean phase
+* [#3](https://github.com/cescoffier/maven-play2-plugin/issues/3) - Add target/scala-2.9.1/classes_managed to the
+project model classpath
+* [#2](https://github.com/cescoffier/maven-play2-plugin/issues/2) - Deploy the plugin to maven central via oss.sonatype
+* [#1](https://github.com/cescoffier/maven-play2-plugin/issues/1) - Fixed plugin artifactId in plexus/components.xml
+& Documentation improvements
+
