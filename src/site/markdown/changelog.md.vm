@@ -5,6 +5,7 @@ Changelog
 Version 1.2.2
 --------------
 
+* [#42](https://github.com/cescoffier/maven-play2-plugin/issues/41) - Migrate the plugin to nanoko
 * [#41](https://github.com/cescoffier/maven-play2-plugin/issues/41) - Allow attachment of the javadoc and source files
 * [#40](https://github.com/cescoffier/maven-play2-plugin/issues/40) - fixed "Cannot find the packaged file - Too many
  matches" error
