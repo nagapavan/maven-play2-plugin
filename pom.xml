@@ -28,7 +28,7 @@
     <artifactId>play2-maven-plugin</artifactId>
     <version>1.2.2-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
-    <name>play2-maven-plugin</name>
+    <name>OW2 Nanoko play2-maven-plugin</name>
 
     <description>A Maven Plugin to build Play2 Application</description>
     <url>https://github.com/nanoko-project/maven-play2-plugin</url>

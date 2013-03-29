@@ -33,7 +33,7 @@
 
             <!-- Github ribbon -->
             <gitHub>
-                <projectId>cescoffier/maven-play2-plugin</projectId>
+                <projectId>nanoko-project/maven-play2-plugin</projectId>
                 <ribbonOrientation>right</ribbonOrientation>
                 <ribbonColor>black</ribbonColor>
             </gitHub>
