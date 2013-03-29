@@ -1,2 +1,2 @@
-de.akquinet.innovation.play.maven
-de.akquinet.innovation.play.maven.utils
+org.nanoko.playframework.mojo
+org.nanoko.playframework.mojo.utils
