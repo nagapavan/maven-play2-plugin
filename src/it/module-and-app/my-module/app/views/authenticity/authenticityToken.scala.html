@@ -1,0 +1,4 @@
+@import _root_.authenticity._
+@defining(AuthenticityTokenGenerator.generate()) { uuid =>
+    <input type="hidden" name="authenticity" value="@uuid" />
+}
