@@ -20,8 +20,7 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <!-- TODO Update version -->
-        <version>5</version>
+        <version>7</version>
     </parent>
 
     <groupId>org.nanoko.playframework</groupId>
@@ -306,21 +305,6 @@
     </repositories>
 
     <build>
-        <!-- TODO Use the resource-appender plugin, add DEPENDENCIES -->
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <resource>
-                <directory>.</directory>
-                <targetPath>META-INF</targetPath>
-                <includes>
-                    <include>LICENSE*</include>
-                    <include>NOTICE*</include>
-                </includes>
-            </resource>
-        </resources>
-
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
