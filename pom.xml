@@ -13,8 +13,7 @@
   ~ limitations under the License.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -25,7 +24,7 @@
 
     <groupId>org.nanoko.playframework</groupId>
     <artifactId>play2-maven-plugin</artifactId>
-    <version>1.2.2-SNAPSHOT</version>
+    <version>1.2.2</version>
     <packaging>maven-plugin</packaging>
     <name>OW2 Nanoko play2-maven-plugin</name>
 
@@ -86,8 +85,8 @@
 
         <contributor>
             <name>Robin Palotai</name>
-            <email/>
-            <url/>
+            <email />
+            <url />
             <organization>EPAM Systems</organization>
             <properties>
                 <github>robinp</github>
@@ -96,9 +95,9 @@
 
         <contributor>
             <name>Sam Spycher</name>
-            <email/>
-            <url/>
-            <organization/>
+            <email />
+            <url />
+            <organization />
             <properties>
                 <github>samspycher</github>
             </properties>
@@ -106,9 +105,9 @@
 
         <contributor>
             <name>Shane Witbeck</name>
-            <email/>
+            <email />
             <url>http://digitalsanctum.com</url>
-            <organization/>
+            <organization />
             <properties>
                 <github>digitalsanctum</github>
             </properties>
@@ -116,9 +115,9 @@
 
         <contributor>
             <name>Alexandre Normand</name>
-            <email/>
+            <email />
             <url>http://heyitsalex.net</url>
-            <organization/>
+            <organization />
             <properties>
                 <github>alexandre-normand</github>
             </properties>
@@ -126,9 +125,9 @@
 
         <contributor>
             <name>Den Kovalevsky</name>
-            <email/>
-            <url/>
-            <organization/>
+            <email />
+            <url />
+            <organization />
             <properties>
                 <github>xaoc3dgraph</github>
             </properties>
@@ -140,7 +139,7 @@
         <mavenVersion>2.2.1</mavenVersion>
         <mavenArchiverVersion>2.5</mavenArchiverVersion>
         <!-- empty by default, can be set using system props (-Dplay2.home=...)-->
-        <play2.home/>
+        <play2.home />
         <site.path>maven/snapshot</site.path>
     </properties>
 
