@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2013-03-30T15:53:22.714">
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/src/main/java/org/nanoko/playframework/mojo/Play2CleanMojo.java">
+<pmd version="4.2.5" timestamp="2013-03-30T16:25:22.569">
+<file name="/Users/jenkins/jobs/play2-maven-plugin - Site Deploy/workspace/src/main/java/org/nanoko/playframework/mojo/Play2CleanMojo.java">
 <violation beginline="41" endline="41" begincolumn="18" endcolumn="20" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="org.nanoko.playframework.mojo" class="Play2CleanMojo" variable="lib" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'lib'.
 </violation>
 </file>
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/src/main/java/org/nanoko/playframework/mojo/Play2DebugMojo.java">
+<file name="/Users/jenkins/jobs/play2-maven-plugin - Site Deploy/workspace/src/main/java/org/nanoko/playframework/mojo/Play2DebugMojo.java">
 <violation beginline="50" endline="52" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.nanoko.playframework.mojo" class="Play2DebugMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/src/main/java/org/nanoko/playframework/mojo/Play2RunMojo.java">
+<file name="/Users/jenkins/jobs/play2-maven-plugin - Site Deploy/workspace/src/main/java/org/nanoko/playframework/mojo/Play2RunMojo.java">
 <violation beginline="51" endline="53" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.nanoko.playframework.mojo" class="Play2RunMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
