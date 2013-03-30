@@ -147,6 +147,21 @@
         <maven>[3.0.3,)</maven>
     </prerequisites>
 
+    <distributionManagement>
+        <repository>
+            <id>${repo.releases.id}</id>
+            <name>${repo.releases.name}</name>
+            <url>${repo.releases.url}</url>
+            <uniqueVersion>false</uniqueVersion>
+        </repository>
+        
+        <snapshotRepository>
+            <id>${repo.snapshots.id}</id>
+            <name>${repo.snapshots.name}</name>
+            <url>${repo.snapshots.url}</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
