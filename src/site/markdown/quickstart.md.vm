@@ -60,6 +60,14 @@ At the root of the created project, create a _pom.xml_ file with the following c
                     <scope>provided</scope>
                 </dependency>
 
+                 <!-- the Java API is in this artifact -->
+                 <dependency>
+                     <groupId>play</groupId>
+                     <artifactId>play-java_2.10</artifactId>
+                     <version>${play.version}</version>
+                     <scope>provided</scope>
+                 </dependency>
+
             </dependencies>
 
         <build>
