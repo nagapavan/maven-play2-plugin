@@ -18,20 +18,20 @@ import org.apache.commons.exec.CommandLine;
 import org.apache.maven.plugin.MojoExecutionException;
 
 /**
- * Generate Eclipse project files
+ * Generate IntelliJ project files
  * 
- * @goal eclipse
+ * @goal idea
  */
-public class Play2EclipseMojo extends AbstractPlay2SimpleMojo {
+public class Play2IntelliJMojo extends AbstractPlay2SimpleMojo {
 
 	@Override
 	protected void addCommandLineArgs(CommandLine cmdLine) {
-		cmdLine.addArgument("eclipse");
+		cmdLine.addArgument("idea");
 	}
 
 	@Override
 	protected void onExecutionException(Exception e) throws MojoExecutionException {
-		throw new MojoExecutionException("Error during Eclipse project file generation", e);
+		throw new MojoExecutionException("Error during IntelliJ project file generation", e);
 	}
 
 }
