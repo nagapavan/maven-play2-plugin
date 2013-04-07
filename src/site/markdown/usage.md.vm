@@ -171,9 +171,9 @@ You can use the _install-play_ goal to download and install Play 2 distributions
 
 On your prompt type;
 
-    mvn ${project.groupId}:${project.artifactId}:install-play -Dplay2version=2.1.0 -Dplay2basedir=${HOME}/opt
+    mvn ${project.groupId}:${project.artifactId}:install-play -Dplay2version=2.1.1 -Dplay2basedir=${HOME}/opt
 
-to install Play 2.1.0 in _${HOME}/opt/play-2.1.0_.
+to install Play 2.1.0 in _${HOME}/opt/play-2.1.1_.
 
 Or register the _install-play_ goal in your _pom.xml_ and use the installed distribution through the plugin by adding;
 
@@ -181,7 +181,7 @@ Or register the _install-play_ goal in your _pom.xml_ and use the installed dist
         [...]
         <properties>
             [...]
-            <play2.version>2.1.0</play2.version>
+            <play2.version>2.1.1</play2.version>
             [...]
         </properties>
         [...]
@@ -202,7 +202,7 @@ Or register the _install-play_ goal in your _pom.xml_ and use the installed dist
                             <goals>
                                 <goal>install-play</goal>
                             </goals>
-                            <phase>pre-clean</phase>
+                            <phase>validate</phase>
                             <configuration>
                                 <play2version>${play2.version}</play2version>
                                 <play2basedir>${user.home}/opt</play2basedir>
