@@ -271,11 +271,11 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
     private void copyServletBridge() throws IOException {
         // We need to copy two artifacts : play2-war-core-common_2.9.1 and play2-war-core-servlet30_2.9.1
         List<Artifact> artifacts = pluginArtifacts;
-        URL common = getUrlByArtifactId(artifacts, "play2-war-core-common_2.9.1");
-        URL servlet = getUrlByArtifactId(artifacts, "play2-war-core-servlet30_2.9.1");
+        URL common = getUrlByArtifactId(artifacts, "play2-war-core-common_2.10");
+        URL servlet = getUrlByArtifactId(artifacts, "play2-war-core-servlet30_2.10");
 
-        FileUtils.copyURLToFile(common, new File(webappDirectory, LIB_PATH + "play2-war-core-common_2.9.1.jar"));
-        FileUtils.copyURLToFile(servlet, new File(webappDirectory, LIB_PATH + "play2-war-core-servlet30_2.9.1.jar"));
+        FileUtils.copyURLToFile(common, new File(webappDirectory, LIB_PATH + "play2-war-core-common_2.10.jar"));
+        FileUtils.copyURLToFile(servlet, new File(webappDirectory, LIB_PATH + "play2-war-core-servlet30_2.10.jar"));
     }
 
     /**
