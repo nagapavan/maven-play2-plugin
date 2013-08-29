@@ -137,8 +137,8 @@ public class Play2PackageMojo
                 if (!fileToAdd.exists()) {
                     throw new MojoExecutionException(fileToAdd.getCanonicalPath() + " not found, can't add to package");
                 }
-                String message = String.format("Adding files to distribution zip [%s]: \n\t%s",
-                        distributionFile.getCanonicalPath(), StringUtils.join(additionalFiles, "\n\t"));
+                String message = String.format("Adding file to distribution zip [%s]: \n\t%s",
+                        distributionFile.getCanonicalPath(), file);
                 getLog().info(message);
                 if(fileToAdd.isDirectory()){ // add as a directory
                     zipFile.addFolder(file, parameters);
