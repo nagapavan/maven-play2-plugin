@@ -123,6 +123,13 @@ public class Play2PackageMojo
     private void packageAdditionalFiles(List<String> additionalFiles, File distributionFile) throws MojoExecutionException {
         try {
             ZipFile zipFile = new ZipFile(distributionFile);
+            //create parameters object.
+            ZipParameters parameters = new ZipParameters();
+            parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_FASTEST);
+            parameters.setIncludeRootFolder(true);
+            // Let's safely assume that the zip filename is also the root directory all files are packaged in
+            parameters.setRootFolderInZip(StringUtils.substringBeforeLast(distributionFile.getName(), ".zip"));
+            parameters.setReadHiddenFiles(true);
 
             ArrayList<File> filesToAdd = new ArrayList<File>(additionalFiles.size());
             for (String file : additionalFiles) {
@@ -130,19 +137,17 @@ public class Play2PackageMojo
                 if (!fileToAdd.exists()) {
                     throw new MojoExecutionException(fileToAdd.getCanonicalPath() + " not found, can't add to package");
                 }
-                filesToAdd.add(fileToAdd);
-
-                ZipParameters parameters = new ZipParameters();
-                parameters.setCompressionLevel(Zip4jConstants.DEFLATE_LEVEL_FASTEST);
-                parameters.setIncludeRootFolder(true);
-                // Let's safely assume that the zip filename is also the root directory all files are packaged in
-                parameters.setRootFolderInZip(StringUtils.substringBeforeLast(distributionFile.getName(), ".zip"));
-                parameters.setReadHiddenFiles(true);
-
-                String message = String.format("Adding files to distribution zip [%s]: \n\t%s",
-                        distributionFile.getCanonicalPath(), StringUtils.join(additionalFiles, "\n\t"));
+                String message = String.format("Adding file to distribution zip [%s]: \n\t%s",
+                        distributionFile.getCanonicalPath(), file);
                 getLog().info(message);
-
+                if(fileToAdd.isDirectory()){ // add as a directory
+                    zipFile.addFolder(file, parameters);
+                } else { //is a file.
+                    filesToAdd.add(fileToAdd);
+                }
+            }
+            //add non directory files.
+            if(filesToAdd.size()>0){
                 zipFile.addFiles(filesToAdd, parameters);
             }
         } catch (ZipException e) {
