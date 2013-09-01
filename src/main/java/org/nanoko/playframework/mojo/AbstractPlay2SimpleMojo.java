@@ -21,7 +21,7 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 
 /**
- * Helper for very simple Mojos
+ * Abstract Play 2 Mojo for Mojo that just need to call the `play` command.
  */
 public abstract class AbstractPlay2SimpleMojo extends AbstractPlay2Mojo {
 
@@ -49,7 +49,7 @@ public abstract class AbstractPlay2SimpleMojo extends AbstractPlay2Mojo {
 	/**
 	 * Opportunity for subclasses to populate the command line args
 	 * 
-	 * @param cmdLine
+	 * @param cmdLine the command line that is built.
 	 */
 	protected abstract void addCommandLineArgs(CommandLine cmdLine);
 
