@@ -23,7 +23,7 @@
     <packaging>play2</packaging>
 
     <properties>
-        <play.version>2.1.1</play.version>
+        <play.version>2.1.3</play.version>
     </properties>
 
     <dependencies>
