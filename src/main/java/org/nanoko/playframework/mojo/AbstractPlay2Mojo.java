@@ -316,6 +316,40 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
         for (Map.Entry<Object, Object> entry : play2SystemProperties.entrySet()) {
             args.add(String.format(PLAY2_ARG_FORMAT, entry.getKey(), entry.getValue()));
         }
+        manageProxySettings(args);
+
+
         return args.toArray(new String[0]);
+    }
+
+    /**
+     * Appends the proxy settings (extracted from the Maven settings) to the system properties list.
+     * It adds the following properties:
+     * <code>
+     *     <pre>
+     *        -Dhttp.proxyHost=yourserver -Dhttp.proxyPort=8080 -Dhttp.proxyUser=username -Dhttp.proxyPassword=password
+     *     </pre>
+     * </code>
+     * @param system the system properties.
+     */
+    private void manageProxySettings(Set<String> system) {
+        // Append proxy settings if configured for http
+        String proxyProtocol = session.getSettings().getActiveProxy().getProtocol();
+        String proxyHost = session.getSettings().getActiveProxy().getHost();
+        int proxyPort = session.getSettings().getActiveProxy().getPort();
+        String proxyUser = session.getSettings().getActiveProxy().getUsername();
+        String proxyPassword = session.getSettings().getActiveProxy().getPassword();
+        if ("http".equals(proxyProtocol)  && proxyHost != null) {
+            system.add(String.format(PLAY2_ARG_FORMAT, "http.proxyHost", proxyHost));
+            if (proxyPort != 0) {
+                system.add(String.format(PLAY2_ARG_FORMAT, "http.proxyPort", proxyPort));
+            }
+            if (proxyUser != null) {
+                system.add(String.format(PLAY2_ARG_FORMAT, "http.proxyUser", proxyUser));
+            }
+            if (proxyPassword != null) {
+                system.add(String.format(PLAY2_ARG_FORMAT, "http.proxyPassword", proxyPassword));
+            }
+        }
     }
 }
