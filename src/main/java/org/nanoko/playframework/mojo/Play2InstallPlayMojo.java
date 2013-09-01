@@ -106,6 +106,7 @@ public class Play2InstallPlayMojo
             FileUtils.forceMkdir( play2basedirFile );
 
             // Download
+            getLog().info("Play! " + play2version + " downloaded from " + zipUrl);
             getLog().debug( debugLogPrefix + "is downloading to " + zipFile );
             FileUtils.copyURLToFile( zipUrl, zipFile );
 
@@ -126,7 +127,7 @@ public class Play2InstallPlayMojo
                 throw new MojoExecutionException( "Can't set " + play2 + " execution bit" );
             }
 
-            getLog().debug( debugLogPrefix + "is now installed in " + play2home );
+            getLog().info("Play! " + play2version + " is now installed in " + play2home);
 
         } catch ( NoSuchArchiverException ex ) {
             throw new MojoExecutionException( "Can't auto install Play! " + play2version + " in "
