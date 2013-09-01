@@ -271,8 +271,11 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
     private void copyServletBridge() throws IOException {
         // We need to copy two artifacts : play2-war-core-common_2.9.1 and play2-war-core-servlet30_2.9.1
         List<Artifact> artifacts = pluginArtifacts;
-        URL common = getUrlByArtifactId(artifacts, "play2-war-core-common_2.10");
-        URL servlet = getUrlByArtifactId(artifacts, "play2-war-core-servlet30_2.10");
+        URL common = getUrlForArtifactStartingBy(artifacts, "play2-war-core-common");
+        URL servlet = getUrlForArtifactStartingBy(artifacts, "play2-war-core-servlet30");
+        if (common == null || servlet == null) {
+            throw new IOException("Was not able to find the play2-war artifacts in the artifact list :" + artifacts);
+        }
 
         FileUtils.copyURLToFile(common, new File(webappDirectory, LIB_PATH + "play2-war-core-common_2.10.jar"));
         FileUtils.copyURLToFile(servlet, new File(webappDirectory, LIB_PATH + "play2-war-core-servlet30_2.10.jar"));
@@ -280,19 +283,21 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
 
     /**
      * Gets the artifact's URL from the artifact list.
+     * This method returns the first artifact from the artifact list with an artifactId starting by the given
+     * artifactId.
      *
      * @param artifacts  the list of artifact
-     * @param artifactId the dependency artifact id.
+     * @param prefix the dependency artifact id (prefix).
      * @return the artifact's URL or <code>null</code> if the URL cannot
      *         be found.
      */
-    private URL getUrlByArtifactId(List<Artifact> artifacts, String artifactId) {
+    private URL getUrlForArtifactStartingBy(List<Artifact> artifacts, String prefix) {
         for (Artifact artifact : artifacts) {
-            if (artifact.getArtifactId().equals(artifactId)) {
+            if (artifact.getArtifactId().startsWith(prefix)) {
                 try {
                     return artifact.getFile().toURI().toURL();
                 } catch (MalformedURLException e) {
-                    getLog().error("Cannot compute the url of the artifact : " + artifactId);
+                    getLog().error("Cannot compute the url of the artifact : " + prefix);
                 }
             }
         }

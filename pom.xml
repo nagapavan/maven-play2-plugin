@@ -26,7 +26,7 @@
     <artifactId>play2-maven-plugin</artifactId>
     <version>1.2.3-SNAPSHOT</version>
     <packaging>maven-plugin</packaging>
-    <name>OW2 Nanoko play2-maven-plugin</name>
+    <name>OW2 Nanoko ~ play2-maven-plugin</name>
 
     <description>A Maven Plugin to build Play2 Application</description>
     <url>https://github.com/nanoko-project/maven-play2-plugin</url>
@@ -293,30 +293,17 @@
         <!-- War support -->
         <dependency>
             <groupId>com.github.play2war</groupId>
-            <artifactId>play2-war-core-common_2.9.1</artifactId>
-            <version>0.8.1</version>
+            <artifactId>play2-war-core-common_2.10</artifactId>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.github.play2war</groupId>
-            <artifactId>play2-war-core-servlet30_2.9.1</artifactId>
-            <version>0.8.1</version>
+            <artifactId>play2-war-core-servlet30_2.10</artifactId>
+            <version>1.0</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>play2-war-support</id>
-            <url>http://repository-play-war.forge.cloudbees.com/release/</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
