@@ -333,6 +333,10 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
      * @param system the system properties.
      */
     private void manageProxySettings(Set<String> system) {
+        // Skip if there is no proxy.
+        if (session.getSettings().getActiveProxy() == null) {
+            return;
+        }
         // Append proxy settings if configured for http
         String proxyProtocol = session.getSettings().getActiveProxy().getProtocol();
         String proxyHost = session.getSettings().getActiveProxy().getHost();
