@@ -1,6 +1,22 @@
 Changelog
 =========
 
+Version 1.2.3
+-------------
+
+* [#1](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/1) - Play 'eclipse' support
+* [#2](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/2) - Should not depend on play2-war-core-common if we do not use war packaging
+* [#3](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/3) - Build success even on compile error
+* [#5](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/5) - Add a goal that calls play start
+* [#6](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/6) - Fixed ClassNotFoundException when deploying war package
+* [#7](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/7) - Should use proxy information from Maven settings
+* [#9](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/9) - Error whem compile project : NoClassDefFoundError: scala/Equals
+* [#10](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/10) - Update play2-war plugin usage for Play 2.1.0+ users.
+* [#11](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/11) - Auto-install dont find distributions -> connection time out
+* [#12](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/12) - allow to add directories in zip distribution
+* [#13](https://api.github.com/repos/nanoko-project/maven-play2-plugin/issues/13) - Update servlet bridge to 1.0
+
+
 
 Version 1.2.2
 --------------
