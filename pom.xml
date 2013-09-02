@@ -323,6 +323,14 @@
             <version>1.0</version>
             <scope>compile</scope>
         </dependency>
+
+        <!-- To support the issue exportation -->
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>1.1.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
@@ -533,6 +541,9 @@
                         <goal>clean</goal>
                         <goal>package</goal>
                     </goals>
+                    <environmentVariables>
+                        <PLAY2_HOME>${play2.home}</PLAY2_HOME>
+                    </environmentVariables>
                 </configuration>
                 <executions>
                     <execution>
