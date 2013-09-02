@@ -539,11 +539,8 @@
                     <localRepositoryPath>${project.build.directory}/local-repository</localRepositoryPath>
                     <goals>
                         <goal>clean</goal>
-                        <goal>package</goal>
+                        <goal>package -DPLAY2_HOME=${play2.home}</goal>
                     </goals>
-                    <environmentVariables>
-                        <PLAY2_HOME>${PLAY2_HOME}</PLAY2_HOME>
-                    </environmentVariables>
                 </configuration>
                 <executions>
                     <execution>
