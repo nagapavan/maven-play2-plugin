@@ -542,7 +542,7 @@
                         <goal>package</goal>
                     </goals>
                     <environmentVariables>
-                        <PLAY2_HOME>${play2.home}</PLAY2_HOME>
+                        <PLAY2_HOME>${PLAY2_HOME}</PLAY2_HOME>
                     </environmentVariables>
                 </configuration>
                 <executions>
