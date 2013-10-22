@@ -243,9 +243,14 @@ public class Play2PackageMojo
         if (!dist.exists()) {
             getLog().info("The dist directory does not exist, lookup for the distribution file in target/dist");
             dist = new File(getBuildDirectory(), "dist");
-            if (!dist.isDirectory()) {
-                throw new MojoExecutionException("Cannot find the 'dist' directory, " +
-                        "neither 'dist' nor 'target/dist' exist");
+            if (!dist.isDirectory()) {            	
+                getLog().info("The target/dist directory does not exist, lookup for the distribution file in target/universal");
+                // directory changed to target/universal since Play 2.2.0
+                dist = new File(getBuildDirectory(), "universal"); 
+                if (!dist.isDirectory()) {
+	                throw new MojoExecutionException("Cannot find the 'dist' directory, " +
+	                        "neither 'dist' nor 'target/dist' nor 'target/universal' exist");
+                }
             }
         }
         Collection<File> found = FileUtils.listFiles(dist, new String[]{"zip"}, false);
