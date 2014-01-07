@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="4.2.5" timestamp="2013-09-02T14:19:51.968">
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2CleanMojo.java">
+<pmd version="4.2.5" timestamp="2014-01-07T16:14:06.385">
+<file name="/Users/clement/Projects/nanoko/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2CleanMojo.java">
 <violation beginline="41" endline="41" begincolumn="18" endcolumn="20" rule="UnusedPrivateField" ruleset="Unused Code Rules" package="org.nanoko.playframework.mojo" class="Play2CleanMojo" variable="lib" externalInfoUrl="http://pmd.sourceforge.net/rules/unusedcode.html#UnusedPrivateField" priority="3">
 Avoid unused private fields such as 'lib'.
 </violation>
 </file>
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2DebugMojo.java">
+<file name="/Users/clement/Projects/nanoko/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2DebugMojo.java">
 <violation beginline="50" endline="52" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.nanoko.playframework.mojo" class="Play2DebugMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2RunMojo.java">
+<file name="/Users/clement/Projects/nanoko/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2RunMojo.java">
 <violation beginline="51" endline="53" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.nanoko.playframework.mojo" class="Play2RunMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
 </file>
-<file name="/Users/clement/Projects/nano/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2StartMojo.java">
+<file name="/Users/clement/Projects/nanoko/maven-play2-plugin/maven-play2-plugin/target/checkout/src/main/java/org/nanoko/playframework/mojo/Play2StartMojo.java">
 <violation beginline="53" endline="55" begincolumn="11" endcolumn="9" rule="EmptyCatchBlock" ruleset="Basic Rules" package="org.nanoko.playframework.mojo" class="Play2StartMojo" method="execute" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#EmptyCatchBlock" priority="3">
 Avoid empty catch blocks
 </violation>
