@@ -384,7 +384,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.3</version>
                 <configuration>
                     <skipDeploy>true</skipDeploy>
                     <reportPlugins>
@@ -512,7 +512,7 @@
             <plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
-                <version>0.8</version>
+                <version>0.9</version>
                 <configuration>
                     <message>Building site for ${project.version}</message>
                 </configuration>
