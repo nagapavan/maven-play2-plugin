@@ -37,7 +37,7 @@ object ApplicationBuild extends Build {
     javaSource in Test <<= baseDirectory / "src/test/java",
 
 
-    distDirectory <<= baseDirectory / "target/dist",
+    //distDirectory <<= baseDirectory / "target/dist",
 
     playAssetsDirectories := Seq.empty[File],
 

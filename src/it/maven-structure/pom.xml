@@ -9,7 +9,7 @@
     <packaging>play2</packaging>
 
     <properties>
-            <play.version>2.1.1</play.version>
+            <play.version>2.2.1</play.version>
     </properties>
 
     <repositories>
@@ -28,13 +28,13 @@
 
         <!-- Play Framework Dependencies -->
         <dependency>
-            <groupId>play</groupId>
+            <groupId>com.typesafe.play</groupId>
             <artifactId>play_2.10</artifactId>
             <version>${play.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>play</groupId>
+            <groupId>com.typesafe.play</groupId>
             <artifactId>play-test_2.10</artifactId>
             <version>${play.version}</version>
             <scope>provided</scope>
