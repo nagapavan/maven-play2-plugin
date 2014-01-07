@@ -1,7 +1,7 @@
 Usage
 =====
 
-Before starting, be sure to have the _play_ executable available from your _PATH_ or to have defined the _PLAY2\_HOME_
+Before starting, be sure to have the _play_ executable available from your _PATH_ or to have defined the _PLAY2_HOME_
  system variable used by the plugin to find the Play 2 SDK. The packaging of your project must be _play2_.
 
     export PLAY2_HOME=...
@@ -73,17 +73,17 @@ The _PLAY2_ location can also be defined in the _pom.xml_ file such as in:
         <version>${project.version}</version>
         <extensions>true</extensions>
           <configuration>
-            <play2Home>some/path/to/play-2.0</play2Home>
+            <play2Home>some/path/to/play-2.1.5</play2Home>
           </configuration>
       </plugin>
 
 The plugin is checking in this order:
 
-* the PLAY2\_HOME system variable (set with -DPLAY2\_HOME=...)
+* the PLAY2_HOME system variable (set with -DPLAY2_HOME=...)
 * the _play2Home_ setting
-* the PLAY2\_HOME environment variable
+* the PLAY2_HOME environment variable
 
-If _PLAY2\_HOME_ is not defined, the plugin is looking inside the system _PATH_ to find the _play_ executable.
+If _PLAY2_HOME_ is not defined, the plugin is looking inside the system _PATH_ to find the _play_ executable.
 
 Disable the distribution packaging
 ----------------------------------
@@ -171,9 +171,9 @@ You can use the _install-play_ goal to download and install Play 2 distributions
 
 On your prompt type;
 
-    mvn ${project.groupId}:${project.artifactId}:install-play -Dplay2version=2.1.1 -Dplay2basedir=${HOME}/opt
+    mvn ${project.groupId}:${project.artifactId}:install-play -Dplay2version=2.2.1 -Dplay2basedir=${HOME}/opt
 
-to install Play 2.1.0 in _${HOME}/opt/play-2.1.1_.
+to install Play 2.2.1 in _${HOME}/opt/play-2.2.1_.
 
 Or register the _install-play_ goal in your _pom.xml_ and use the installed distribution through the plugin by adding;
 
@@ -181,7 +181,7 @@ Or register the _install-play_ goal in your _pom.xml_ and use the installed dist
         [...]
         <properties>
             [...]
-            <play2.version>2.1.1</play2.version>
+            <play2.version>2.1.5</play2.version>
             [...]
         </properties>
         [...]

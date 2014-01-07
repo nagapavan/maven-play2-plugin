@@ -24,6 +24,7 @@ Open the _project/Build.scala_ file, and change the _appName_ and _appVersion_ v
 Source and Test folders
 ------------------------
 
+
 We will now see how to configure the project to have our Java sources in _src/main/java_, Scala sources in _src/main/scala_,
 and tests in _src/test/java_ and _src/test/scala_. In the _project/Build.scala_ file, update the Play Project definition to:
 
@@ -72,15 +73,6 @@ Then open the _route_ file and change the reference to _/public_ to:
 
     # Map static resources from the /src/main/resources folder to the /assets URL path
     GET     /assets/*file               controllers.Assets.at(path="/src/main/resources", file)
-
-Distribution directory
-----------------------
-
-Set the directory where the distribution is built with:
-
-    distDirectory <<= baseDirectory / "target/dist",
-
-**However**, only `target/dist` is supported by the plugin.
 
 Unmanaged Dependencies
 ----------------------
