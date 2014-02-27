@@ -22,18 +22,14 @@ import org.apache.maven.plugin.MojoExecutionException;
 import java.io.IOException;
 
 /**
- * Starts the Play application as a forked process.
- * Use the <code>stop</code> goal to kill the background process.
- * These two goals can be used together in the pre-integration-test
- * and post-integration-test lifecycle phases for running integration
- * tests against your application.
+ * Stop the background Play application.
  *
- * @goal start
+ * @goal stop
  * @requiresProject false
  * @requiresDependencyResolution provided
  *
  */
-public class Play2StartMojo
+public class Play2StopMojo
         extends AbstractPlay2Mojo {
 
     public void execute()
@@ -43,7 +39,7 @@ public class Play2StartMojo
 
         CommandLine cmdLine = CommandLine.parse(line);
         cmdLine.addArguments(getPlay2SystemPropertiesArguments(), false);
-        cmdLine.addArgument("start");
+        cmdLine.addArgument("stop");
         System.out.println(cmdLine.toString());
         DefaultExecutor executor = new DefaultExecutor();
 
