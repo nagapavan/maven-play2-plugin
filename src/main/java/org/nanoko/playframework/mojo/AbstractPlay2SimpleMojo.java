@@ -57,8 +57,8 @@ public abstract class AbstractPlay2SimpleMojo extends AbstractPlay2Mojo {
 	 * Generic handler for execution exceptions. Default implementation throws a
 	 * MojoExecutionException.
 	 * 
-	 * @param e
-	 * @throws MojoExecutionException
+	 * @param e the cause
+	 * @throws MojoExecutionException the exception wrapping the cause
 	 */
 	protected void onExecutionException(Exception e) throws MojoExecutionException {
 		throw new MojoExecutionException("Error during execution", e);

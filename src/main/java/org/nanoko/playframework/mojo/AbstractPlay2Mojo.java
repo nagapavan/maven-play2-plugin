@@ -317,7 +317,7 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
      * This method builds a map containing the Maven properties to give to SBT invocations.
      * It contains maven project data (GAV), pom properties, and system properties.
      *
-     * @return the map of properties (<code><pre>key -> value</pre></code>)
+     * @return the map of properties (<code>key -&gt; value</code>)
      */
     public Map<String, String> getEnvironment() {
         Map<String, String> env = new HashMap<String, String>();
@@ -404,9 +404,7 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
      * Appends the proxy settings (extracted from the Maven settings) to the system properties list.
      * It adds the following properties:
      * <code>
-     * <pre>
      *        -Dhttp.proxyHost=yourserver -Dhttp.proxyPort=8080 -Dhttp.proxyUser=username -Dhttp.proxyPassword=password
-     *     </pre>
      * </code>
      *
      * @param system the system properties.
