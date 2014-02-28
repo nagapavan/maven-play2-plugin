@@ -496,7 +496,8 @@
                             <goal>jar</goal>
                         </goals>
                         <configuration>
-                            <additionalparam>-Xdoclint:none</additionalparam>
+                            <!-- Java 8 only -->
+                            <!--<additionalparam>-Xdoclint:none</additionalparam> -->
                         </configuration>
                     </execution>
                 </executions>
