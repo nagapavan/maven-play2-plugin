@@ -97,9 +97,22 @@ public class Play2PackageMojo
      */
     boolean attachSources;
 
+    
+    /**
+     * Enables or disables the application stagging. 
+     *
+     * @parameter default-value=false
+     */
+    boolean stage;
+    
     public void execute()
             throws MojoExecutionException {
 
+        // stage
+        if(stage) {
+            stageApplication();
+        }
+        
         // Package
         packageApplication();
         File packagedApplication = moveApplicationPackageToTarget();
@@ -215,6 +228,27 @@ public class Play2PackageMojo
         }
     }
 
+    private void stageApplication() throws MojoExecutionException {
+        String line = getPlay2().getAbsolutePath();
+
+        CommandLine cmdLine = CommandLine.parse(line);
+        cmdLine.addArgument("stage");
+        DefaultExecutor executor = new DefaultExecutor();
+
+        if (timeout > 0) {
+            ExecuteWatchdog watchdog = new ExecuteWatchdog(timeout);
+            executor.setWatchdog(watchdog);
+        }
+
+        executor.setWorkingDirectory(project.getBasedir());
+        executor.setExitValue(0);
+        try {
+            executor.execute(cmdLine, getEnvironment());
+        } catch (IOException e) {
+            throw new MojoExecutionException("Error during stage", e);
+        }
+    }
+
     private void packageDistribution() throws MojoExecutionException {
         String line = getPlay2().getAbsolutePath();
 
@@ -243,13 +277,13 @@ public class Play2PackageMojo
         if (!dist.exists()) {
             getLog().info("The dist directory does not exist, lookup for the distribution file in target/dist");
             dist = new File(getBuildDirectory(), "dist");
-            if (!dist.isDirectory()) {            	
+            if (!dist.isDirectory()) {              
                 getLog().info("The target/dist directory does not exist, lookup for the distribution file in target/universal");
                 // directory changed to target/universal since Play 2.2.0
                 dist = new File(getBuildDirectory(), "universal"); 
                 if (!dist.isDirectory()) {
-	                throw new MojoExecutionException("Cannot find the 'dist' directory, " +
-	                        "neither 'dist' nor 'target/dist' nor 'target/universal' exist");
+                  throw new MojoExecutionException("Cannot find the 'dist' directory, " +
+                          "neither 'dist' nor 'target/dist' nor 'target/universal' exist");
                 }
             }
         }
