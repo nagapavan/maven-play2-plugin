@@ -41,6 +41,14 @@ public class Play2CleanMojo
     private File lib;
 
     /**
+     * Where are the test dependencies are copied.  If not specified, test dependencies
+     * will be copied to the {@link #lib} directory.
+     *
+     * @parameter default-value="" expression="${testLib}"
+     */
+    private File testLib;
+
+    /**
      * Set to false to avoid to clean the lib folder..
      *
      * @parameter default-value="true"
@@ -97,17 +105,22 @@ public class Play2CleanMojo
 
         // Also delete the lib directory if set
         if (cleanLibFolder) {
-            File lib = new File(project.getBasedir(), "lib");
-            if (lib.exists()) {
-                getLog().debug("Deleting " + lib.getAbsolutePath());
-                try {
-                    FileUtils.deleteDirectory(lib);
-                } catch (IOException e) {
-                    throw new MojoExecutionException("Can't delete the " + lib + " folder", e);
-                }
-            } else {
-                getLog().debug("'" + lib + "' directory not found");
+            removeLibDir(lib);
+            if (testLib != null) removeLibDir(testLib);
+        }
+    }
+
+
+    private void removeLibDir(File libDir) throws MojoExecutionException {
+        if (libDir.exists()) {
+            getLog().debug("Deleting " + libDir.getAbsolutePath());
+            try {
+                FileUtils.deleteDirectory(libDir);
+            } catch (IOException e) {
+                throw new MojoExecutionException("Can't delete the " + libDir + " folder", e);
             }
+        } else {
+            getLog().debug("'" + libDir + "' directory not found");
         }
     }
 }
