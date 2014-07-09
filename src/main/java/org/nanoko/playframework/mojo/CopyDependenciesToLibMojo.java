@@ -103,6 +103,14 @@ public class CopyDependenciesToLibMojo
      */
     private File lib;
 
+    /**
+     * Where are the test dependencies are copied.  If not specified, test dependencies
+     * will be copied to the {@link #lib} directory.
+     *
+     * @parameter default-value="" expression="${testLib}"
+     */
+    private File testLib;
+
     public void execute()
             throws MojoExecutionException {
 
@@ -110,13 +118,25 @@ public class CopyDependenciesToLibMojo
             lib.mkdirs();
         }
 
-        CopyDependenciesMojo cdm = new PlayCopyDependenciesMojo();
-        cdm.execute();
+        if (testLib != null) {
+            if (!testLib.exists()) {
+                testLib.mkdirs();
+            }
+            new PlayCopyDependenciesMojo("runtime", "", lib).execute();
+            new PlayCopyDependenciesMojo("test", "", testLib).execute();
+        } else {
+            new PlayCopyDependenciesMojo("", "provided", lib).execute();
+        }
+
+
+
+
     }
 
     private class PlayCopyDependenciesMojo extends CopyDependenciesMojo {
 
-        public PlayCopyDependenciesMojo() {
+
+        public PlayCopyDependenciesMojo(String includeScope, String excludeScope, File outputDir) {
             super();
             project = CopyDependenciesToLibMojo.this.project;
             setFactory(CopyDependenciesToLibMojo.this.factory);
@@ -127,7 +147,7 @@ public class CopyDependenciesToLibMojo
             setRemoteRepos(CopyDependenciesToLibMojo.this.remoteRepos);
             setLocal(local);
             setRemoteRepos(remoteRepos);
-            setOutputDirectory(lib);
+            setOutputDirectory(outputDir);
             setUseRepositoryLayout(false);
             setLog(getLog());
             setCopyPom(false);
@@ -136,7 +156,11 @@ public class CopyDependenciesToLibMojo
             overWriteSnapshots = true;
             overWriteReleases = false;
             excludeTransitive = false;
-            excludeScope = "provided";
+            super.excludeScope = excludeScope;
+            super.includeScope = includeScope;
         }
     }
+
+
+
 }
