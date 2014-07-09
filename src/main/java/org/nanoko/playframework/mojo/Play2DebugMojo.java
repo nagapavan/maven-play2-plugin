@@ -15,11 +15,14 @@
 
 package org.nanoko.playframework.mojo;
 
+import java.io.IOException;
+
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.PumpStreamHandler;
 import org.apache.maven.plugin.MojoExecutionException;
 
-import java.io.IOException;
+import static java.lang.System.*;
 
 /**
  * Launch the Play application in debug mode (play debug run)
@@ -40,6 +43,7 @@ public class Play2DebugMojo extends AbstractPlay2Mojo {
         cmdLine.addArguments(getPlay2SystemPropertiesArguments(), false);
         cmdLine.addArgument("run");
         DefaultExecutor executor = new DefaultExecutor();
+        executor.setStreamHandler(new PumpStreamHandler(err, out, in));
 
         // As where not linked to a project, we can't set the working directory.
         // So it will use the directory where mvn was launched.
