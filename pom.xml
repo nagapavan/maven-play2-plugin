@@ -132,7 +132,7 @@
                 <github>xaoc3dgraph</github>
             </properties>
         </contributor>
-        
+
         <contributor>
             <name>Joe Bolinger</name>
             <email />
@@ -150,6 +150,46 @@
             <organization>Grenoble University</organization>
             <properties>
                 <github>torito</github>
+            </properties>
+        </contributor>
+
+        <contributor>
+            <name>Chris Cundill</name>
+            <email />
+            <url />
+            <organization>Kainos Software</organization>
+            <properties>
+                <github>cpcundill</github>
+            </properties>
+        </contributor>
+
+        <contributor>
+            <name>Damian Dunajski</name>
+            <email />
+            <url />
+            <organization />
+            <properties>
+                <github>geek-soft</github>
+            </properties>
+        </contributor>
+
+        <contributor>
+            <name>Yann</name>
+            <email />
+            <url />
+            <organization />
+            <properties>
+                <github>le-yams</github>
+            </properties>
+        </contributor>
+
+        <contributor>
+            <name>Brian R. Jackson</name>
+            <email />
+            <url>http://jaxzin.github.io/</url>
+            <organization>ESPN</organization>
+            <properties>
+                <github>jaxzin</github>
             </properties>
         </contributor>
 
@@ -174,7 +214,7 @@
             <url>${repo.releases.url}</url>
             <uniqueVersion>false</uniqueVersion>
         </repository>
-        
+
         <snapshotRepository>
             <id>${repo.snapshots.id}</id>
             <name>${repo.snapshots.name}</name>
