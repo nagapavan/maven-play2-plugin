@@ -549,12 +549,12 @@
                 <version>2.2.1</version>
                 <configuration>
                     <useReleaseProfile>true</useReleaseProfile>
-                    <goals>deploy plugin:report site-deploy</goals>
+                    <goals>deploy plugin:report</goals>
                     <arguments>-Prelease</arguments>
                 </configuration>
             </plugin>
 
-            <plugin>
+            <!--<plugin>
                 <groupId>com.github.github</groupId>
                 <artifactId>site-maven-plugin</artifactId>
                 <version>0.9</version>
@@ -573,7 +573,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
 
             <!-- Integration test using the invoker plugin -->
             <plugin>
