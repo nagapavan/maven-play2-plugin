@@ -13,6 +13,14 @@ Create a Play 2 application using the _play_ command:
 
 This command creates the Play 2 application. Obviously it's not required if you already have an existing application.
 
+Activator
+---------
+
+If you are using Typesafe Activator or SBT directly, set the `SBT_EXECUTABLE_NAME` system property:
+
+    export SBT_EXECUTABLE_NAME=activator
+
+
 Mavenization
 ------------
 
@@ -164,5 +172,3 @@ The plugin is checking in this order:
 * the PLAY2_HOME environment variable
 
 If _PLAY2_HOME_ is not define, the plugin use the system _PATH_, and looks for the _play_ or _play.bat_ executable.
-
-

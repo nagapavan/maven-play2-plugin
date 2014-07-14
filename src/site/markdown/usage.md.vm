@@ -12,8 +12,11 @@ Before starting, be sure to have the _play_ executable available from your _PATH
 
 It is also possible to defined this location form the pom file directly (see below).
 
-Best practice is to define the version of the Play2 plugin that you want to use in either your _pom.xml_
-or a parent _pom.xml_.
+Then, if you use Typesafe Activator or SBT directly, set the `SBT_EXECUTABLE_NAME` system property:
+
+    export SBT_EXECUTABLE_NAME=activator
+
+Best practice is to define the version of the Play2 plugin that you want to use in either your _pom.xml_ or a parent _pom.xml_.
 
     <project>
         [...]

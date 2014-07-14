@@ -12,4 +12,11 @@ The documentation is available on :
 * http://nanoko-project.github.com/maven-play2-plugin/maven/release/ for the latest release
 * http://nanoko-project.github.com/maven-play2-plugin/maven/snapshot/ for the development version
 
+**IMPORTANT**: To use `activator`, you need to set the `SBT_EXECUTABLE_NAME` system property to `activator`:
+
+```
+export SBT_EXECUTABLE_NAME=activator
+mvn clean install
+```
+
 The plugin is licensed under the Apache Software License 2.0.
