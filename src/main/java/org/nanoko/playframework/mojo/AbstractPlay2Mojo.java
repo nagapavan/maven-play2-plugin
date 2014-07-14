@@ -152,6 +152,16 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
      */
     String play2Home;
     /**
+     * The name of the executable for building the play project (which ultimately invokes SBT).
+     * Prior to Play 2.3 the executable name was simply <tt>play</tt>.  From Play 2.3 onwards,
+     * the executable name can be either <tt>activator</tt> or simply <tt>sbt</tt> directly.
+     * <p/>
+     * This value is defaulted to <tt>play</tt> for backwards compatibility
+     *
+     * @parameter default-value="play" expression="${env.SBT_EXECUTABLE_NAME}"
+     */
+    String executableName = "play";
+    /**
      * Sets a timeout to the <tt>play</tt> invocation (in milliseconds).
      * If not set (or set to <tt>-1</tt>, the plugin waits until the underlying <tt>play</tt> process completes.
      * If set, the plugin kills the underlying <tt>play</tt> process when the timeout is reached, and it fails the build.
@@ -231,9 +241,9 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
         String path = getPlay2Home();
         if (path != null) {
             if (isWindows()) {
-                play2 = new File(path, "play.bat");
+                play2 = new File(path, executableName + ".bat");
             } else {
-                play2 = new File(path, "play");
+                play2 = new File(path, executableName);
             }
             if (play2.isFile()) {
                 play2 = manageHomebrew(play2);
@@ -242,12 +252,12 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
                         "to " + path + " but can't find the 'play' executable");
             }
         } else {
-            getLog().info("Looking for 'play' in the System PATH");
+            getLog().info("Looking for '" + executableName + "' in the System PATH");
             play2 = findPlay2ExecutableInSystemPath();
         }
 
         if (play2 == null || !play2.isFile()) {
-            throw new MojoExecutionException("Can't find the 'play' executable. Set the " + ENV_PLAY2_HOME + " system/" +
+            throw new MojoExecutionException("Can't find the '" + executableName + "' executable. Set the " + ENV_PLAY2_HOME + " system/" +
                     "configuration/environment variable or check the the 'play' executable is available from the " +
                     "path");
         }
@@ -275,12 +285,12 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
      * @return the given play2 executable except if Homebrew is detected, in this case <tt>/usr/local/bin/play</tt>.
      */
     private File manageHomebrew(File play2) {
-        if (play2.getAbsolutePath().contains("/Cellar/play/")) {
-            getLog().info("Homebrew installation of play detected");
+        if (play2.getAbsolutePath().contains("/Cellar/" + executableName + "/")) {
+            getLog().info("Homebrew installation of " + executableName + " detected");
             // Substitute the play executable by the homebrew one.
-            File file = new File("/usr/local/bin/play");
+            File file = new File("/usr/local/bin/" + executableName);
             if (!file.exists()) {
-                getLog().error("Homebrew installation detected, but no play executable in /usr/local/bin");
+                getLog().error("Homebrew installation detected, but no " + executableName + " executable in /usr/local/bin");
             } else {
                 return file;
             }
@@ -289,9 +299,9 @@ public abstract class AbstractPlay2Mojo extends AbstractMojo {
     }
 
     private File findPlay2ExecutableInSystemPath() {
-        String play2 = "play";
+        String play2 = executableName;
         if (isWindows()) {
-            play2 = "play.bat";
+            play2 = executableName + ".bat";
         }
         String systemPath = System.getenv("PATH");
 
