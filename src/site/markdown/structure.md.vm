@@ -79,7 +79,7 @@ Unmanaged Dependencies
 
 Play is using the _lib_ folder to store _unmanaged_ dependencies (i.e. dependencies not managed by SBT). The plugin
 populates this folder with the Maven dependencies declared in the project. By default, to be compatible with the
-default Play layyout, it use the _lib_ directory. However you can change it. In order to move this location to
+default Play layout, it use the _lib_ directory. However you can change it. In order to move this location to
 _target/lib_ you need to edit two files.
 
 First, open the _project/Build.scala_ file and in the project settings add:
