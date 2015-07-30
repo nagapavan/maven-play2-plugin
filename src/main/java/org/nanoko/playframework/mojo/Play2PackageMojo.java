@@ -176,11 +176,19 @@ public class Play2PackageMojo
                 FileUtils.listFiles(target, new PackageFileFilter(), new PrefixFileFilter("scala-")));
 
         File mainJar = null;
+        String packageFileSuffix = "-" + project.getVersion() + ".jar"; // Package artifact should end with <version>.jar
         for (File file : files) {
-            // We need to distinguish which file is the main artifacts.
-            // We filter out -sources and -javadoc files.
-            if (! file.getName().endsWith("-javadoc.jar")
-                    && ! file.getName().endsWith("-sources.jar")) {
+            // If we find a file ending with packageFileSuffix, it is accepted as the Application Package file
+            if (file.getName().endsWith(packageFileSuffix)) {
+                mainJar = file;
+                break;
+            }
+            // We need to distinguish which file is the main artifact.
+            // We filter out certain known file types (-sources, -javadoc, -web-assets and -sans-externalized) and take the last valid file
+            if (!file.getName().endsWith("-javadoc.jar")
+                    && !file.getName().endsWith("-sources.jar")
+                    && !file.getName().endsWith("-web-assets.jar")
+                    && !file.getName().endsWith("-sans-externalized.jar")) {
                 mainJar = file;
             }
         }
@@ -192,17 +200,17 @@ public class Play2PackageMojo
         try {
             if (StringUtils.isBlank(classifier)) {
                 File out = new File(target, project.getBuild().getFinalName() + ".jar");
-                getLog().info("Copying " + files[0].getName() + " to " + out.getName());
+                getLog().info("Copying " + mainJar.getName() + " to " + out.getName());
                 FileUtils.copyFile(mainJar, out);
                 return out;
             } else {
                 File out = new File(target, project.getBuild().getFinalName() + "-" + classifier + ".jar");
-                getLog().info("Copying " + files[0].getName() + " to " + out.getName());
+                getLog().info("Copying " + mainJar.getName()  + " to " + out.getName());
                 FileUtils.copyFile(mainJar, out);
                 return out;
             }
         } catch (IOException e) {
-            throw new MojoExecutionException("Cannot copy package file " + files[0].getAbsolutePath()
+            throw new MojoExecutionException("Cannot copy package file " + mainJar.getAbsolutePath()
                     + " to " + target.getAbsolutePath());
         }
     }
