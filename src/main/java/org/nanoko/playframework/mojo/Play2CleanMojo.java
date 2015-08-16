@@ -54,6 +54,15 @@ public class Play2CleanMojo
      * @parameter default-value="true"
      */
     private boolean cleanLibFolder = true;
+    
+    /**
+     * Set to false to avoid cleaning 
+     * the incremetal compilation artifacts from play.
+     * for some reason it impacts the compilation from time to time and is not cleaned using the "clean" command
+     *
+     * @parameter default-value="false"
+     */
+    private boolean fullClean = false;
 
     public void execute()
             throws MojoExecutionException {
@@ -101,6 +110,26 @@ public class Play2CleanMojo
             }
         } else {
             getLog().debug("'logs' directory not found");
+        }
+        
+        //Also delete the target & project folder in project (this contains some code generateed incrementally by play)
+        if(fullClean){
+            File incrementalCompilationInProjectTarget = new File(project.getBasedir(), "project/target");
+            File incrementalCompilationInProjectProject = new File(project.getBasedir(), "project/project");
+            if(incrementalCompilationInProjectTarget.exists()){
+                try {
+                    FileUtils.deleteDirectory(incrementalCompilationInProjectTarget);
+                } catch (IOException e) {
+                    throw new MojoExecutionException("Can't delete the project generated code content", e);
+                }
+            }
+            if(incrementalCompilationInProjectProject.exists()){
+                try {
+                    FileUtils.deleteDirectory(incrementalCompilationInProjectProject);
+                } catch (IOException e) {
+                    throw new MojoExecutionException("Can't delete the project generated code content", e);
+                }
+            }
         }
 
         // Also delete the lib directory if set

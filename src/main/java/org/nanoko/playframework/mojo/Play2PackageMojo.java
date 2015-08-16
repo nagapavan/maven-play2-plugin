@@ -123,8 +123,8 @@ public class Play2PackageMojo
             packageDistribution();
             dist = moveDistributionArtifactToTarget();
 
-            // The javadoc and source files are created during the distribution construction.
-            moveJavadocAndSourcesArtifactsToTarget();
+            // The javadoc, source and web-assets files are created during the distribution construction.
+            moveOtherArtifactsToTarget();
 
             if (!additionalFiles.isEmpty()) {
                 packageAdditionalFiles(additionalFiles, dist);
@@ -331,9 +331,10 @@ public class Play2PackageMojo
         return out;
     }
 
-    private void moveJavadocAndSourcesArtifactsToTarget() throws MojoExecutionException {
+    private void moveOtherArtifactsToTarget() throws MojoExecutionException {
         File sourceJar = null;
         File javadocJar = null;
+        File webAssetsJar = null;
 
         File target = getBuildDirectory();
         File[] files = FileUtils.convertFileCollectionToFileArray(
@@ -345,6 +346,8 @@ public class Play2PackageMojo
                 sourceJar = file;
             } else if (file.getName().endsWith("-javadoc.jar")) {
                 javadocJar = file;
+            } else if(file.getName().endsWith("-web-assets.jar")){
+                webAssetsJar = file;
             }
         }
         try {
@@ -359,8 +362,14 @@ public class Play2PackageMojo
                 File out = new File(target, project.getBuild().getFinalName() + "-javadoc.jar");
                 FileUtils.copyFile(javadocJar, out);
             }
+            
+            if (webAssetsJar != null) {
+                getLog().info("Artifact containing the web assets found - copying to target");
+                File out = new File(target, project.getBuild().getFinalName() + "-web-assets.jar");
+                FileUtils.copyFile(webAssetsJar, out);
+            }
         } catch (IOException e) {
-            throw new MojoExecutionException("Can't copy the javadoc and sources file to the target folder", e);
+            throw new MojoExecutionException("Can't copy the javadoc, sources or web-assets files to the target folder", e);
         }
     }
 
