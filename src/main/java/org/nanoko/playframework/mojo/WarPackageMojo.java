@@ -15,8 +15,8 @@
 
 package org.nanoko.playframework.mojo;
 
-import org.nanoko.playframework.mojo.utils.CopyDependenciesEmbeddedMojo;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.apache.maven.archiver.MavenArchiveConfiguration;
 import org.apache.maven.archiver.MavenArchiver;
 import org.apache.maven.artifact.Artifact;
@@ -32,13 +32,17 @@ import org.apache.maven.shared.dependency.tree.DependencyTreeBuilder;
 import org.apache.maven.shared.dependency.tree.DependencyTreeBuilderException;
 import org.codehaus.plexus.archiver.war.WarArchiver;
 import org.codehaus.plexus.util.StringUtils;
+import org.nanoko.playframework.mojo.utils.CopyDependenciesEmbeddedMojo;
 
 import java.io.File;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Packages the Play application as War.
@@ -170,6 +174,13 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
      */
     List<String> additionalFiles = new ArrayList<String>();
 
+    /**
+     * Allow search of play2-war artifacts in project dependency tree.
+     *
+     * @parameter
+     */
+    boolean searchPlay2WarArtifactsInProjectDependencies = false;
+
     DependencyNode treeRoot;
 
     public void execute() throws MojoExecutionException, MojoFailureException {
@@ -268,17 +279,24 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
 
     }
 
+    /**
+     * Add play2-war artifacts from plugin dependencies if searchPlay2WarArtifactsInProjectDependencies is false.
+     * Otherwise there is nothing to do because all project dependencies will be in LIB_PATH
+     * @throws IOException if play2-war artifacts not found from plugin dependencies
+     */
+    @SuppressWarnings("unchecked")
     private void copyServletBridge() throws IOException {
-        // We need to copy two artifacts : play2-war-core-common_2.9.1 and play2-war-core-servlet30_2.9.1
-        List<Artifact> artifacts = pluginArtifacts;
-        URL common = getUrlForArtifactStartingBy(artifacts, "play2-war-core-common");
-        URL servlet = getUrlForArtifactStartingBy(artifacts, "play2-war-core-servlet30");
-        if (common == null || servlet == null) {
-            throw new IOException("Was not able to find the play2-war artifacts in the artifact list :" + artifacts);
-        }
+        if (!searchPlay2WarArtifactsInProjectDependencies) {
+            List<Artifact> artifacts = pluginArtifacts;
+            URL common = getUrlForArtifactStartingBy(artifacts, "play2-war-core-common");
+            URL servlet = getUrlForArtifactStartingBy(artifacts, "play2-war-core-servlet30");
+            if (common == null || servlet == null) {
+                throw new IOException("Was not able to find the play2-war artifacts in the artifact list :" + artifacts);
+            }
+            FileUtils.copyURLToFile(common, new File(webappDirectory, LIB_PATH + FilenameUtils.getName(common.getFile())));
+            FileUtils.copyURLToFile(servlet, new File(webappDirectory, LIB_PATH + FilenameUtils.getName(servlet.getFile())));
 
-        FileUtils.copyURLToFile(common, new File(webappDirectory, LIB_PATH + "play2-war-core-common_2.10.jar"));
-        FileUtils.copyURLToFile(servlet, new File(webappDirectory, LIB_PATH + "play2-war-core-servlet30_2.10.jar"));
+        }
     }
 
     /**
@@ -366,7 +384,11 @@ public class WarPackageMojo extends AbstractPlay2Mojo {
                     if (!fileToAdd.exists()) {
                         throw new IOException(fileToAdd.getCanonicalPath() + " not found, can't add to war file");
                     }
-                    warArchiver.addFile(fileToAdd, fileToAdd.getName());
+                    if (fileToAdd.isFile()) {
+                        warArchiver.addFile(fileToAdd, fileToAdd.getName());
+                    } else if (fileToAdd.isDirectory()) {
+                        warArchiver.addDirectory(fileToAdd, CLASSES_PATH + fileToAdd.getName() + "/");
+                    }
                 }
             }
 
