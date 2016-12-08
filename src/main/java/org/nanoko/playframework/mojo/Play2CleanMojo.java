@@ -64,6 +64,14 @@ public class Play2CleanMojo
      */
     private boolean fullClean = false;
 
+
+    /**
+     * Set to false to avoid to clean the logs folder..
+     *
+     * @parameter default-value="true"
+     */
+    private boolean cleanLogsFolder = true;
+
     public void execute()
             throws MojoExecutionException {
 
@@ -87,31 +95,13 @@ public class Play2CleanMojo
         }
         
         // Also delete the dist directory
-        File dist = new File(project.getBasedir(), "dist");
-        if (dist.exists()) {
-            getLog().debug("Deleting " + dist.getAbsolutePath());
-            try {
-                FileUtils.deleteDirectory(dist);
-            } catch (IOException e) {
-                throw new MojoExecutionException("Can't delete the dist folder", e);
-            }
-        } else {
-            getLog().debug("'dist' directory not found");
-        }
+        removeDistFolder();
 
         // Delete the log folder
-        File logs = new File(project.getBasedir(), "logs");
-        if (logs.exists()) {
-            getLog().debug("Deleting " + logs.getAbsolutePath());
-            try {
-                FileUtils.deleteDirectory(logs);
-            } catch (IOException e) {
-                throw new MojoExecutionException("Can't delete the logs folder", e);
-            }
-        } else {
-            getLog().debug("'logs' directory not found");
+        if (cleanLogsFolder) {
+            removeLogsFolder();
         }
-        
+
         //Also delete the target & project folder in project (this contains some code generateed incrementally by play)
         if(fullClean){
             File incrementalCompilationInProjectTarget = new File(project.getBasedir(), "project/target");
@@ -139,7 +129,6 @@ public class Play2CleanMojo
         }
     }
 
-
     private void removeLibDir(File libDir) throws MojoExecutionException {
         if (libDir.exists()) {
             getLog().debug("Deleting " + libDir.getAbsolutePath());
@@ -150,6 +139,34 @@ public class Play2CleanMojo
             }
         } else {
             getLog().debug("'" + libDir + "' directory not found");
+        }
+    }
+
+    private void removeDistFolder() throws MojoExecutionException {
+        File dist = new File(project.getBasedir(), "dist");
+        if (dist.exists()) {
+            getLog().debug("Deleting " + dist.getAbsolutePath());
+            try {
+                FileUtils.deleteDirectory(dist);
+            } catch (IOException e) {
+                throw new MojoExecutionException("Can't delete the dist folder", e);
+            }
+        } else {
+            getLog().debug("'dist' directory not found");
+        }
+    }
+
+    private void removeLogsFolder() throws MojoExecutionException {
+        File logs = new File(project.getBasedir(), "logs");
+        if (logs.exists()) {
+            getLog().debug("Deleting " + logs.getAbsolutePath());
+            try {
+                FileUtils.deleteDirectory(logs);
+            } catch (IOException e) {
+                throw new MojoExecutionException("Can't delete the logs folder", e);
+            }
+        } else {
+            getLog().debug("'logs' directory not found");
         }
     }
 }
